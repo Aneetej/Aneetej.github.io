@@ -1,4 +1,4 @@
-/* ─── Reset & Base ─────────────────────────────────────────────────── */
+/*  Reset & Base  */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -29,14 +29,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ─── Layout ────────────────────────────────────────────────────────── */
+/*  Layout  */
 .container {
   max-width: var(--max-w);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
 
-/* ─── Navigation ────────────────────────────────────────────────────── */
+/*  Navigation  */
 nav {
   display: flex;
   gap: 1.5rem;
@@ -54,7 +54,7 @@ nav a {
 
 nav a:hover { color: var(--accent); }
 
-/* ─── Sections ──────────────────────────────────────────────────────── */
+/*  Sections  */
 section {
   padding: 3.5rem 0;
   border-bottom: 1px solid var(--border);
@@ -71,7 +71,7 @@ h2 {
   letter-spacing: -0.01em;
 }
 
-/* ─── Bio / About ───────────────────────────────────────────────────── */
+/*  Bio / About  */
 .bio-header {
   display: flex;
   gap: 2rem;
@@ -146,7 +146,7 @@ h2 {
 
 .bio-body p:last-child { margin-bottom: 0; }
 
-/* ─── Interesting Thoughts ──────────────────────────────────────────── */
+/*  Interesting Thoughts  */
 .thoughts-intro {
   color: var(--muted);
   font-size: 0.9rem;
@@ -206,7 +206,7 @@ h2 {
   letter-spacing: 0.03em;
 }
 
-/* ─── Research / Projects ───────────────────────────────────────────── */
+/*  Research / Projects  */
 .research-entry {
   display: grid;
   grid-template-columns: 130px 1fr;
@@ -250,7 +250,7 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
-/* ─── Contact ───────────────────────────────────────────────────────── */
+/*  Contact  */
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -355,7 +355,7 @@ h2 {
 .btn:hover  { background: var(--accent-lt); }
 .btn:active { transform: scale(0.98); }
 
-/* ─── Photography ───────────────────────────────────────────────────── */
+/*  Photography  */
 .photo-grid {
   columns: 2;
   column-gap: 1rem;
@@ -389,7 +389,7 @@ h2 {
   .photo-grid { columns: 1; }
 }
 
-/* ─── Footer ────────────────────────────────────────────────────────── */
+/*  Footer  */
 footer {
   padding: 2rem 0;
   text-align: center;
@@ -405,7 +405,7 @@ footer a {
 
 footer a:hover { color: var(--accent); }
 
-/* ─── Responsive ────────────────────────────────────────────────────── */
+/*  Responsive  */
 @media (max-width: 600px) {
   .bio-header  { flex-direction: column; align-items: center; text-align: center; }
   .quick-links { justify-content: center; }
