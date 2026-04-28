@@ -377,7 +377,44 @@ h2 {
   transition: opacity 0.2s;
 }
 
-.photo-item img:hover { opacity: 0.88; }
+.photo-item img:hover { opacity: 0.88; cursor: zoom-in; }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.lightbox-close:hover { color: #fff; }
+
+.lightbox.open { display: flex; }
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
 
 .photo-caption {
   font-size: 0.78rem;
