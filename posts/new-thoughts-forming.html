@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New thoughts forming... — Aneetej Arora</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YL8WC34E6N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YL8WC34E6N');
+  </script>
+
+  <style>
+    .post-header {
+      padding: 3.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-back {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 1.75rem;
+      transition: color 0.2s;
+    }
+
+    .post-back:hover { color: var(--accent); }
+
+    .post-header h1 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .post-body {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .post-body p {
+      color: #374151;
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .post-body h2 {
+      font-size: 1.15rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body a {
+      color: var(--accent-lt);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .post-body a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .post-body blockquote {
+      border-left: 3px solid var(--border);
+      margin: 1.5rem 0;
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <nav>
+      <a href="../index.html">about</a>
+      <a href="../index.html#research">research</a>
+      <a href="../thoughts.html" class="nav-active">thoughts</a>
+      <a href="../photography.html">photography</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+
+    <header class="post-header">
+      <a href="../thoughts.html" class="post-back">← all thoughts</a>
+      <h1>New thoughts forming...</h1>
+      <span class="post-meta">Apr 2026 &middot; <span class="thought-tag">Introduction</span></span>
+    </header>
+
+    <article class="post-body">
+      <p>
+        As I navigate my final few weeks of my undergraduate career, I look forward to sharing my thoughts on this page.
+      </p>
+
+      <!-- Add your content below. Use <p> for paragraphs, <h2> for section headings, <blockquote> for quotes. -->
+
+    </article>
+
+    <footer>
+      <p>
+        &copy; <span id="year"></span> Aneetej Arora &mdash;
+        built with HTML &amp; CSS &middot;
+        hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

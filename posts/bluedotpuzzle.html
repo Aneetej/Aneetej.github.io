@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>When Features Hide in Circles — Aneetej Arora</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../style.css" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YL8WC34E6N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YL8WC34E6N');
+  </script>
+
+  <style>
+    .post-header {
+      padding: 3.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-back {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 1.75rem;
+      transition: color 0.2s;
+    }
+
+    .post-back:hover { color: var(--accent); }
+
+    .post-header h1 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.6rem;
+    }
+
+    .post-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .post-body {
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .post-body p {
+      color: #374151;
+      margin-bottom: 1.25rem;
+      line-height: 1.8;
+    }
+
+    .post-body h2 {
+      font-size: 1.15rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .post-body a {
+      color: var(--accent-lt);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .post-body a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .post-body blockquote {
+      border-left: 3px solid var(--border);
+      margin: 1.5rem 0;
+      padding: 0.25rem 0 0.25rem 1.25rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .post-body code {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 0.85em;
+      background: #f3f4f6;
+      padding: 0.15em 0.4em;
+      border-radius: 3px;
+      color: #374151;
+    }
+
+    .post-body strong {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    /* Probe results table */
+    .probe-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin: 1.25rem 0 1.75rem;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .probe-table th {
+      text-align: left;
+      padding: 0.4rem 1.25rem 0.4rem 0;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .probe-table td {
+      padding: 0.375rem 1.25rem 0.375rem 0;
+      border-bottom: 1px solid #f3f4f6;
+      color: #374151;
+    }
+
+    .probe-table tr.highlight td {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Loss list */
+    .loss-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .loss-list li {
+      color: #374151;
+      line-height: 1.7;
+      font-size: 0.96rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .loss-list .loss-label {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    /* Open questions */
+    .questions-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .questions-list li {
+      color: #374151;
+      line-height: 1.75;
+      font-size: 0.96rem;
+      padding-left: 1rem;
+      border-left: 2px solid var(--border);
+    }
+
+    .post-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .author-note {
+      color: var(--muted);
+      font-size: 0.875rem;
+      font-style: italic;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <nav>
+      <a href="../index.html">about</a>
+      <a href="../index.html#research">research</a>
+      <a href="../thoughts.html" class="nav-active">thoughts</a>
+      <a href="../photography.html">photography</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+
+    <header class="post-header">
+      <a href="../thoughts.html" class="post-back">← all thoughts</a>
+      <h1>When Features Hide in Circles: Solving the BlueDot Technical AI Safety Puzzle</h1>
+      <span class="post-meta">Jun 2025 &middot; <span class="thought-tag">AI Interpretability</span> <span class="thought-tag">ML</span></span>
+    </header>
+
+    <article class="post-body">
+
+      <p>
+        I worked through the <a href="https://github.com/SamDower/bluedot-tais-puzzle" target="_blank" rel="noopener">BlueDot Technical AI Safety Puzzle.</a> The puzzle is a mechanistic interpretability challenge that asks a fairly simple question: <em>which one of eight learned features in a small MLP classifier isn't linear?</em>
+      </p>
+      <p>
+        What followed was one of the more satisfying investigative sessions I've had in a while. Here's how it went.
+      </p>
+
+      <h2>The Setup</h2>
+
+      <p>
+        The model is a small text classifier built on top of <code>sentence-transformers/all-MiniLM-L6-v2</code>. You feed it a short sentence, and it predicts eight binary features simultaneously (ex. <code>country</code>, <code>food</code>, <code>question</code>). The problem: after a specific layer, <strong>seven of these features live as linear directions in activation space</strong>. One does not. Our job was to figure out which one, and how it's represented.
+      </p>
+      <p>
+        The model has learned internal representations, and we were asked to characterize its geometry.
+      </p>
+
+      <h2>Step 1: Linear Probes Tell You Almost Everything</h2>
+
+      <p>
+        To identify the non-linear feature, I hooked into the post-ReLU activations at layer 2 and fit logistic regression probes for each of the eight features.
+      </p>
+      <p>The results immediatly pointed to a candidate feature:</p>
+
+      <table class="probe-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Train Probe</th>
+            <th>Test Probe</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>number</td><td>1.0000</td><td>0.9753</td></tr>
+          <tr><td>question</td><td>1.0000</td><td>1.0000</td></tr>
+          <tr><td>color</td><td>1.0000</td><td>0.9713</td></tr>
+          <tr><td>food</td><td>1.0000</td><td>0.9853</td></tr>
+          <tr><td>sentiment</td><td>1.0000</td><td>0.9820</td></tr>
+          <tr class="highlight"><td>country</td><td>0.4410</td><td>0.4287</td></tr>
+          <tr><td>person</td><td>1.0000</td><td>0.9973</td></tr>
+          <tr><td>body_part</td><td>1.0000</td><td>0.9800</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Seven features: probe accuracy of 1.00. One feature, country, was at 0.44, which is <em>below chance</em>. A linear probe is actively confused by it. To verify this finding, To verify this finding, I projected the activations onto the learned weight vector of the linear probe for each feature. For seven features, you see clean bimodal distributions with a clear decision boundary. For country, the two distributions sit on top of each other, indistinguishable along any single direction. The figure below shows the projections for each feature. 
+      </p>
+       <figure style="margin: 1.5rem 0;">
+        <img src="../assets/bluedot-probe-projections.png" alt="Projection onto each feature's linear probe direction — linear features show
+ two separated peaks while country shows overlapping peaks" style="width: 100%; border-radius: 4px; border: 1px solid var(--border);" />
+        <figcaption style="font-size: 0.78rem; color: var(--muted); font-style: italic; margin-top: 0.5rem;">Projection onto each feature's
+linear probe direction. Seven features show clean bimodal separation; <code>country</code> (highlighted in red) shows fully overlapping dist
+ributions — no linear boundary exists.</figcaption>
+        </figure>
+
+      <p>
+        I also double-checked by looking at other layers. Layer 1 didn't have a well-formed representation yet. Layer 2 post-ReLU was the right place to look.
+      </p>
+
+      <h2>Step 2: Visualizing the Confusion</h2>
+
+      <p>
+        To understand why the linear probe was failing, I ran PCA to project the 64-dim activations down to 2D and colored the scatter plot by <code>country=0</code> and <code>country=1</code>. The two classes weren't linearly separable in this projection. They overlapped in a way that wasn't random, but it wasn't a hyperplane you could cut through.
+      </p>
+
+      <h2>Step 3: From "Non-Linear" to "Ring"</h2>
+
+      <p>
+        Knowing a feature is non-linear was only part of the puzzle. The second part asked how it's represented.
+      </p>
+      <p>
+        I tried a quadratic probe first, adding degree-2 polynomial features to the logistic regression. Accuracy jumped from 0.44 to 0.9716, while all other features stayed flat at 1.00.
+      </p>
+      <p>
+        To find the specific shape, I analyzed the <strong>radius distribution</strong> in the top-2 PCA subspace. Instead of asking "does a linear direction separate the classes," I asked "does the <em>distance from the origin</em> separate the classes?" The radius probe came back at <strong>0.7124</strong>. This was clearly better than the linear probe. The feature was encoded in magnitude rather than direction.
+      </p>
+      <p>
+        Then I checked the angles. Within <code>country=1</code> examples, I grouped by which country was mentioned and computed their mean angle in the PCA subspace. Different countries landed at systematically different angles. The ring was doing <em>double duty</em>: the radius encodes whether a country is present, and angle encodes which country. This was confirmed by a kernel SVM comparison. An RBF (Radial Basis Function: it measures the similarity between two data points based on their distance) kernel jumped from 0.51 to <strong>0.94</strong> accuracy on <code>country</code>, while all other features saw zero improvement.
+      </p>
+
+      <h2>Step 4: Building a Model That Does This on Purpose</h2>
+
+      <p>
+        The original model discovered the ring <em>accidentally</em> during training. Task 3 in the puzzle asked us to take this further: train a model that does it deliberately, and make the representation even more information-dense.
+      </p>
+      <p>
+        I designed a custom architecture that adds a <code>ring_proj</code> layer. This is a learned linear map from the 64-dim activations to a 2D coordinate space. I then used this loss function:
+      </p>
+
+      <ul class="loss-list">
+        <li><span class="loss-label">Ring loss —</span> push <code>country=1</code> examples toward a target radius of 3.0, and pull <code>country=0</code> examples toward the origin</li>
+        <li><span class="loss-label">Clock loss —</span> push examples with the same country toward the same angle, and push different countries apart</li>
+        <li><span class="loss-label">Classification loss —</span> standard binary cross-entropy across all eight features</li>
+      </ul>
+
+      <p>
+        Training over 80 epochs reduced total loss from 1.1654 to 0.2469, with all features reaching above 0.97 accuracy. The resulting ring was clean: <code>country=0</code> examples form a tight cluster near the center, <code>country=1</code> examples trace a circle at radius 3, and the ~20 countries spread around the clock face in distinct angular clusters. A radius-only probe on the 2D ring coordinates hits <strong>0.9997</strong>. 
+      </p>
+
+      <h2>What This Is Really About</h2>
+
+      <p>
+        This puzzle is a hands-on demonstration of a phenomenon that comes up repeatedly in mechanistic interpretability research: <strong>features don't have to be linear directions</strong>.
+      </p>
+      <p>
+        Most interpretability work starts from the assumption that features correspond to directions — "the dog direction," "the sentiment direction," and so on. This is sometimes called the linear representation hypothesis. And it's often true — seven of eight features here were perfectly linear.
+      </p>
+      <p>
+        But the model also discovered, through gradient descent alone, that it could represent the <code>country</code> feature more efficiently as a ring. The radius acts like a switch (present/absent), and the angle acts like an identity card (which country). Two pieces of information, two neurons, one non-linear geometry. This connects directly to ideas in superposition and polysemanticity — how neural networks pack more information into fewer dimensions than you'd naively expect, and how that information can be encoded in ways that resist simple linear probing.
+      </p>
+
+      <h2>What I'd Try Next</h2>
+
+      <ul class="questions-list">
+        <li><strong>Does layer choice matter?</strong> I focused on post-ReLU layer 2, but it would be interesting to track how the ring forms across layers — is it present in embryonic form earlier, or does it emerge suddenly?</li>
+        <li><strong>Why <code>country</code> and not others?</strong> Country names are a very specific category — ~20 of them, semantically distinct, with characteristic co-occurrence patterns. What about the training distribution pushed the model toward a ring rather than a direction?</li>
+        <li><strong>Stability under perturbation</strong> — if you fine-tune the model on new data, does the ring persist, or does it collapse into a linear direction?</li>
+      </ul>
+
+      <p>
+        If you're interested in mechanistic interpretability or just want a concrete puzzle to work through, <a href="https://github.com/SamDower/bluedot-tais-puzzle" target="_blank" rel="noopener">the repository is public</a>. I'd recommend going in blind — resist the urge to peek at others' solutions before you've formed your own hypothesis.
+      </p>
+
+      <hr class="post-divider" />
+
+      <p class="author-note">
+        I'm an ML engineer at JHU APL, researching agentic AI systems and mechanistic interpretability. If you found this interesting, reach me at <a href="mailto:aneetej.arora1@gmail.com">aneetej.arora1@gmail.com</a>.
+      </p>
+
+    </article>
+
+    <footer>
+      <p>
+        &copy; <span id="year"></span> Aneetej Arora &mdash;
+        built with HTML &amp; CSS &middot;
+        hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
+      </p>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
