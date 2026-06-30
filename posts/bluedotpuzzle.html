@@ -309,25 +309,19 @@ ributions — no linear boundary exists.</figcaption>
       <h2>What This Is Really About</h2>
 
       <p>
-        This puzzle is a hands-on demonstration of a phenomenon that comes up repeatedly in mechanistic interpretability research: <strong>features don't have to be linear directions</strong>.
+        I truly enjoy solving puzzles and conducting research; I especially enjoy when it focuses on major problems in mechanistic interpretability. 
       </p>
       <p>
-        Most interpretability work starts from the assumption that features correspond to directions — "the dog direction," "the sentiment direction," and so on. This is sometimes called the linear representation hypothesis. And it's often true — seven of eight features here were perfectly linear.
+        Most interpretability work starts from the assumption that features correspond to directions. This is sometimes called the linear representation hypothesis. In our case, we found that seven of eight features here were perfectly linear.
       </p>
       <p>
-        But the model also discovered, through gradient descent alone, that it could represent the <code>country</code> feature more efficiently as a ring. The radius acts like a switch (present/absent), and the angle acts like an identity card (which country). Two pieces of information, two neurons, one non-linear geometry. This connects directly to ideas in superposition and polysemanticity — how neural networks pack more information into fewer dimensions than you'd naively expect, and how that information can be encoded in ways that resist simple linear probing.
+        But the model also discovered, through gradient descent alone, that it could represent the <code>country</code> feature more efficiently as a ring. The radius acts like a switch (present/absent), and the angle acts like an identity card (which country). There were two pieces of information, two neurons, one non-linear geometry. 
       </p>
 
-      <h2>What I'd Try Next</h2>
-
-      <ul class="questions-list">
-        <li><strong>Does layer choice matter?</strong> I focused on post-ReLU layer 2, but it would be interesting to track how the ring forms across layers — is it present in embryonic form earlier, or does it emerge suddenly?</li>
-        <li><strong>Why <code>country</code> and not others?</strong> Country names are a very specific category — ~20 of them, semantically distinct, with characteristic co-occurrence patterns. What about the training distribution pushed the model toward a ring rather than a direction?</li>
-        <li><strong>Stability under perturbation</strong> — if you fine-tune the model on new data, does the ring persist, or does it collapse into a linear direction?</li>
-      </ul>
+      <h2>Try it out!</h2>
 
       <p>
-        If you're interested in mechanistic interpretability or just want a concrete puzzle to work through, <a href="https://github.com/SamDower/bluedot-tais-puzzle" target="_blank" rel="noopener">the repository is public</a>. I'd recommend going in blind — resist the urge to peek at others' solutions before you've formed your own hypothesis.
+        If you're interested in mechanistic interpretability or just want a concrete puzzle to work through, <a href="https://github.com/SamDower/bluedot-tais-puzzle" target="_blank" rel="noopener">the repository is public</a>. 
       </p>
 
       <hr class="post-divider" />
